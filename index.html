@@ -2092,7 +2092,7 @@
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
         </div>
-        <p class="copyright">© 2023 Creative Orbit. All rights reserved. Created by Mayalok Creative Studio</p>
+        <p class="copyright">© 2023 Creative Orbit. All rights reserved. Created by <a href="https://www.instagram.com/mayalok_studio?igsh=MW42Z2JnNGlncnpwdg==">Mayalok Creative Studio</a></p>
     </footer>
 
     <!-- Back to top button -->
@@ -2704,10 +2704,31 @@
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             createCosmicBackground();
-            createFloatingParticles();
+            createFloatingParticles(); 
             initAnimations();
             initImageModal(); // Initialize the image modal functionality
         });
+    </script>
+
+    <!-------------- Code for visit counter --------------------------->
+
+    <div style="text-align:center; margin-top:20px; opacity: .01;">
+    Total Visits: <span id="total-visits">0</span>
+    </div>
+    <script>
+    const namespace = "kunal-portfolio";
+    const key = "main-site";
+
+    async function updateVisits() {
+    try {
+        const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+        const data = await res.json();
+        document.getElementById("total-visits").textContent = data.value;
+    } catch (e) {
+        console.error("Error:", e);
+    }
+    }
+    updateVisits();
     </script>
 </body>
 </html>
