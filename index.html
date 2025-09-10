@@ -2737,24 +2737,24 @@
     </script>
 
     <!-------------- Code for visit counter --------------------------->
-
-    <div style="text-align:center; margin-top:20px; opacity: .01;">
+    <div style="text-align:center; margin-top:20px; opacity: 0.8;">
     Total Visits: <span id="total-visits">0</span>
     </div>
     <script>
     const namespace = "kunal-portfolio";
     const key = "main-site";
-
+    
     async function updateVisits() {
-    try {
+      try {
         const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
         const data = await res.json();
         document.getElementById("total-visits").textContent = data.value;
-    } catch (e) {
+      } catch (e) {
         console.error("Error:", e);
-    }
+      }
     }
     updateVisits();
     </script>
 </body>
 </html>
+
